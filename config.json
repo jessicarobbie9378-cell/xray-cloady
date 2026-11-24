@@ -1,18 +1,1 @@
-{
-  "log": { "loglevel": "info" },
-  "inbounds": [
-    {
-      "port": 3000,
-      "protocol": "vless",
-      "settings": {
-        "clients": [{ "id": "__UUID__", "level": 0 }],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": { "path": "/tk-rail" }
-      }
-    }
-  ],
-  "outbounds": [{ "protocol": "freedom", "tag": "direct" }]
-}
+{"inbounds":[{"port":3000,"protocol":"vless","settings":{"clients":[{"id":"__UUID__","level":0}],"decryption":"none"},"streamSettings":{"network":"ws","wsSettings":{"path":"/tk-rail"}}}],"log":{"loglevel":"info"},"outbounds":[{"protocol":"wireguard","settings":{"address":["10.2.0.2/32"],"mtu":1420,"noKernelTun":true,"peers":[{"allowedIPs":["0.0.0.0/0"],"endpoint":"__WG_ENDPOINT__","keepAlive":25,"publicKey":"__WG_PUBLIC_KEY__"}],"secretKey":"__WG_PRIVATE_KEY__"},"tag":"proton-us"},{"protocol":"freedom","tag":"direct"}],"routing":{"domainStrategy":"IPIfNonMatch","rules":[{"domain":["domain:x.com","domain:twitter.com","domain:twimg.com","domain:t.co","domain:api.twitter.com","domain:youtube.com","domain:youtu.be","domain:googlevideo.com","domain:ytimg.com","domain:youtube-nocookie.com"],"outboundTag":"proton-us","type":"field"},{"domain":["domain:claude.ai","domain:anthropic.com","domain:openai.com","domain:chatgpt.com","domain:chat.openai.com","domain:api.openai.com","domain:gemini.google.com","domain:ai.google.dev","domain:generativelanguage.googleapis.com","domain:deepseek.com","domain:api.deepseek.com","domain:grok.com","domain:x.ai","domain:perplexity.ai","domain:copilot.microsoft.com","domain:poe.com","domain:character.ai","domain:meta.ai"],"outboundTag":"direct","type":"field"}]}}
